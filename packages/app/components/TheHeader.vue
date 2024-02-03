@@ -4,13 +4,55 @@
 <template>
   <nav class="w-full">
     <div class="container">
-      <div class="flex gap-2 items-center space-between w-full">
         <NuxtLink to="/">
           <NuxtImg alt="logo" aria-hidden="true" class="h-16" src="/grass.png" />
-          <span class="sr-only">JAMcraft</span>
         </NuxtLink>
-      </div>
-      <hr>
+        <h1>JamCraft</h1>
+        <button @click="toggleColorMode">
+          <img
+            :alt="`bouton ${$colorMode.preference === 'dark' ? 'light' : 'dark'} mode`"
+            :src="`/${$colorMode.preference === 'dark' ? 'aether' : 'nether'}.png`"
+          />
+        </button>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    toggleColorMode() {
+      this.$colorMode.preference = this.$colorMode.preference === 'dark' ? 'light' : 'dark';
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+h1 {
+  color: var(--color-text);
+  font-family: 'Monocraft';
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav {
+  box-shadow: 0 0 10px 0 var(--color-shadow);
+  padding: 1rem 0;
+  background-color: var(--color-nav);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+</style>

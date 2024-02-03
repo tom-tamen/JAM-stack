@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@unocss/reset/normalize.css', '~/assets/css/main.css'],
-  modules: ['@unocss/nuxt', '@nuxt/image', '@nuxtjs/strapi', '@pinia/nuxt'],
+  modules: ['@unocss/nuxt', '@nuxt/image', '@nuxtjs/strapi', '@pinia/nuxt', '@nuxtjs/color-mode'],
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1338',
     prefix: '/api',
@@ -11,4 +11,7 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
   },
+  colorMode: {
+    classSuffix: ''
+  }
 })

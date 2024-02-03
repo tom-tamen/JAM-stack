@@ -8,68 +8,84 @@ body {
 	@apply font-sans;
 }
 
-* {
-	min-width: 0;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	@apply font-sans;
-}
 
 @font-face {
 	font-family: 'Monocraft';
-	src: local("Monocraft"), url(~assets/fonts/Monocraft.ttf) format("truetype");
+	src: local("Monocraft"), url(~assets/Monocraft.ttf) format("truetype");
 }
+
+:root {
+	--background-texture: url(/assets/images/white.png);
+	--texte-color: #020202;
+	--color-nav: rgba(120, 167, 255, .6);
+	--color-shadow: #363538;
+}
+
+.dark {
+	--background-texture: url(/assets/images/black.png);
+	--texte-color: #f5f5f5;
+	--color-nav: rgba(15, 15, 15, 0.1);
+	--color-shadow: #452991;
+}
+
+
+body {
+	background-image: var(--background-texture);
+	background-size: 128px 128px;
+	background-repeat: repeat;
+	color: var(--texte-color);
+}
+
 
 .crafting-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 36px);
-    grid-template-rows: repeat(3, 36px);
-    gap: 4px;
+	display: grid;
+	grid-template-columns: repeat(3, 36px);
+	grid-template-rows: repeat(3, 36px);
+	gap: 4px;
 }
 
-.crafting-cell, .crafting-output {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #8B8B8B; 
-    border: 2px solid #373737;
-    border-right-color: #FFF;
-    border-bottom-color: #FFF;
+.crafting-cell,
+.crafting-output {
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #8B8B8B;
+	border: 2px solid #373737;
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
 }
 
 .crafting-container {
-    display: flex;
-    flex-direction: column;
-    background: #C6C6C6;
-    border: 2px solid #373737;
-    border-right-color: #FFF;
-    border-bottom-color: #FFF;
-    padding: 30px;
+	display: flex;
+	flex-direction: column;
+	background: #C6C6C6;
+	border: 2px solid #373737;
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
+	padding: 30px;
 	width: fit-content;
 }
 
 .crafting-zone {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 	gap: 20px;
 	align-items: center;
 }
 
 .crafting-container {
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-.crafting-output{
+.crafting-output {
 	width: 54px;
 	height: 54px;
 }
 
-.crafting-item, .crafting-item-output{
+.crafting-item,
+.crafting-item-output {
 	width: 34px;
 	height: 34px;
 }

@@ -11,6 +11,7 @@
     "biome:check": "biome check ./src"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^3.3.2",
     "@pinia/nuxt": "^0.5.1",
     "@types/markdown-it": "^13.0.7",
     "@unocss/nuxt": "^0.58.3",

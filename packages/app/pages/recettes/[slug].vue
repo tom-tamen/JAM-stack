@@ -38,10 +38,10 @@ const { data: recipe, pending } = useAsyncData(
             Items nécessaires
           </h2>
           <ul class="list-none gap-2 p-0">
-            <li
+            <li class="flex gap-2 items-center"
               v-for="item in recipe.data.items" :key="item.id"
             >
-              <NuxtImg :src="item.item.image.url" alt="image de l'item"/>
+              <NuxtImg :src="item.item.image.url" alt="image de l'item" class="h-8"/>
               <p>x {{ item.quantity }}</p>
             </li>
           </ul>
