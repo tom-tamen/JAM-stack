@@ -15,9 +15,6 @@
     "name": {
       "type": "string"
     },
-    "itemID": {
-      "type": "uid"
-    },
     "image": {
       "type": "media",
       "multiple": false,

@@ -781,7 +781,6 @@ export interface ApiItemItem extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    itemID: Attribute.UID;
     image: Attribute.Media;
     description: Attribute.Text;
     createdAt: Attribute.DateTime;
