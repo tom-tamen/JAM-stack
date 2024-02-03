@@ -7,3 +7,88 @@ body {
 	padding: 0;
 	@apply font-sans;
 }
+
+* {
+	min-width: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	@apply font-sans;
+}
+
+@font-face {
+	font-family: 'Monocraft';
+	src: local("Monocraft"), url(~assets/fonts/Monocraft.ttf) format("truetype");
+}
+
+.crafting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 36px);
+    grid-template-rows: repeat(3, 36px);
+    gap: 4px;
+}
+
+.crafting-cell, .crafting-output {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8B8B8B; 
+    border: 2px solid #373737;
+    border-right-color: #FFF;
+    border-bottom-color: #FFF;
+}
+
+.crafting-container {
+    display: flex;
+    flex-direction: column;
+    background: #C6C6C6;
+    border: 2px solid #373737;
+    border-right-color: #FFF;
+    border-bottom-color: #FFF;
+    padding: 30px;
+	width: fit-content;
+}
+
+.crafting-zone {
+	display: flex;
+    flex-direction: row;
+	gap: 20px;
+	align-items: center;
+}
+
+.crafting-container {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.crafting-output{
+	width: 54px;
+	height: 54px;
+}
+
+.crafting-item, .crafting-item-output{
+	width: 34px;
+	height: 34px;
+}
+
+.crafting-item-output {
+	width: 34px;
+	height: 34px;
+	padding: 2px;
+}
+
+.crafting-item-output:hover {
+	background-color: #c5c5c5;
+}
+
+
+.crafting-text {
+	font-size: 16px;
+	color: #373737;
+	font-family: 'Monocraft';
+	margin: 0 0 3px 0;
+	font-weight: normal;
+}

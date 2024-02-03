@@ -6,8 +6,8 @@
     <div class="container">
       <div class="flex gap-2 items-center space-between w-full">
         <NuxtLink to="/">
-          <NuxtImg alt="" aria-hidden="true" class="h-16" src="possum.png" />
-          <span class="sr-only">Recettes animales</span>
+          <NuxtImg alt="logo" aria-hidden="true" class="h-16" src="/grass.png" />
+          <span class="sr-only">JAMcraft</span>
         </NuxtLink>
       </div>
       <hr>

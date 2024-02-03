@@ -14,7 +14,7 @@ const { data: recipe, pending } = useAsyncData(
   <div class="container">
     <template v-if="pending">
       <p class="text-9xl text-center">
-        ÇA CHARGE
+        Chargement...
       </p>
     </template>
     <template v-else>
@@ -29,19 +29,20 @@ const { data: recipe, pending } = useAsyncData(
         </span>
       </div>
       <p>{{ recipe.data.description }}</p>
+      
+      <Crafting :craft="recipe.data.craft" :items="recipe.data.items" :output="recipe.data.image.url" />
+
       <div class="flex flex-col md:flex-row">
         <div class="flex flex-col w-full md:w-1/4">
           <h2 class="mb-0">
-            Ingrédients
+            Items nécessaires
           </h2>
           <ul class="list-none gap-2 p-0">
             <li
-              v-for="ingredient in recipe.data.ingredients" :key="ingredient.id"
+              v-for="item in recipe.data.items" :key="item.id"
             >
-              <p class="font-bold">
-                {{ ingredient.name }}
-              </p>
-              <p>{{ ingredient.quantity }}</p>
+              <NuxtImg :src="item.item.image.url" alt="image de l'item"/>
+              <p>x {{ item.quantity }}</p>
             </li>
           </ul>
         </div>
