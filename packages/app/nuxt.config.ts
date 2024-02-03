@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   css: ['@unocss/reset/normalize.css', '~/assets/css/main.css'],
   modules: ['@unocss/nuxt', '@nuxt/image', '@nuxtjs/strapi', '@pinia/nuxt'],
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    url: process.env.STRAPI_URL || 'http://localhost:1338',
     prefix: '/api',
     version: 'v4',
   },

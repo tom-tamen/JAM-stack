@@ -38,15 +38,13 @@
         "images"
       ]
     },
-    "ingredients": {
-      "type": "component",
-      "repeatable": true,
-      "component": "recipes.ingredients"
+    "craft": {
+      "type": "json"
     },
-    "steps": {
+    "items": {
       "type": "component",
       "repeatable": true,
-      "component": "recipes.etapes"
+      "component": "recipes.craft-recipe"
     }
   }
 }

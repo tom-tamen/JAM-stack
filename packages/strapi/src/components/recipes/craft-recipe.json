@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_recipes_craft_recipes",
+  "info": {
+    "displayName": "Items pour le craft",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}
