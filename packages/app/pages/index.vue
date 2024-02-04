@@ -15,6 +15,16 @@ function addTag(tag: string) {
     search.queryTags.push(tag)
   else search.queryTags = search.queryTags.filter(t => t !== tag)
 }
+
+useHead({
+  title: 'JamCraft - Recettes',
+  meta: [
+    {
+      name: 'description',
+      content: 'Retrouvez toutes les recettes artisanales de JamCraft'
+    }
+  ]
+})
 </script>
 
 <template>

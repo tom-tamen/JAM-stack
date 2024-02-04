@@ -8,6 +8,16 @@ const { data: recipe, pending } = useAsyncData(
   'recipe',
   () => findOne<RecipeData>(`recipes/${route.params.slug}`),
 )
+
+useHead({
+  title: 'JamCraft',
+  meta: [
+    {
+      name: 'description',
+      content: 'Retrouvez toutes les recettes artisanales de JamCraft'
+    }
+  ]
+})
 </script>
 
 <template>
