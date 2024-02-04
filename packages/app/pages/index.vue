@@ -112,6 +112,14 @@ useHead({
   width: 640px;
 }
 
+/* aside sticky */
+aside {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  width: 25%;
+}
+
 @media screen and (max-width: 1230px) {
   .index-container {
     flex-direction: column;
@@ -119,6 +127,10 @@ useHead({
 
   aside{
     width: 100%;
+  }
+
+  aside {
+    position: static;
   }
   
 }
