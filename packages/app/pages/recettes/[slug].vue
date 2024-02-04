@@ -13,40 +13,90 @@ const { data: recipe, pending } = useAsyncData(
 <template>
   <div class="container">
     <template v-if="pending">
-      <p class="text-9xl text-center">
+      <p class="text-xl text-center">
         Chargement...
       </p>
     </template>
     <template v-else>
-      <NuxtImg
-        :src="recipe.data.image.url" alt="" aria-hidden="true"
-        class="h-[500px] object-contain object-center w-full bg-white"
-      />
-      <h1>{{ recipe.data.title }}</h1>
-      <div class="flex items-center gap-x-2">
-        <span v-for="tag in recipe.data.tags" :key="tag.id" class="py-1 px-2 bg-gray-200">
-          {{ tag.name }}
-        </span>
-      </div>
-      <p>{{ recipe.data.description }}</p>
-      
-      <Crafting :craft="recipe.data.craft" :items="recipe.data.items" :output="recipe.data.image.url" />
-
-      <div class="flex flex-col md:flex-row">
-        <div class="flex flex-col w-full md:w-1/4">
+      <div class="page-container">
+        <section class="left-section">
+          <h1>{{ recipe.data.title }}</h1>
+          <NuxtImg :src="recipe.data.image.url" alt="" aria-hidden="true"
+            class="h-[100px] object-contain" />
           <h2 class="mb-0">
-            Items nécessaires
+            Description
           </h2>
-          <ul class="list-none gap-2 p-0">
-            <li class="flex gap-2 items-center"
-              v-for="item in recipe.data.items" :key="item.id"
-            >
-              <NuxtImg :src="item.item.image.url" alt="image de l'item" class="h-8"/>
-              <p>x {{ item.quantity }}</p>
-            </li>
-          </ul>
-        </div>
+          <p>{{ recipe.data.description }}</p>
+
+          <h2 class="mb-0">Recette</h2>
+          <Crafting :craft="recipe.data.craft" :items="recipe.data.items" :output="recipe.data.image.url" />
+        </section>
+
+
+        <aside class="flex flex-col md:flex-row">
+          <div class="flex flex-col w-full">
+            <h2 class="mb-0">
+              Items nécessaires
+            </h2>
+            <ul class="list-none gap-2 p-0">
+              <li class="flex gap-2 items-center" v-for="item in recipe.data.items" :key="item.id">
+                <NuxtImg :src="item.item.image.url" alt="image de l'item" class="h-10" />
+                <p>x {{ item.quantity }}</p>
+              </li>
+            </ul>
+            <h2 class="mb-0">
+              Tags
+            </h2>
+            <ul class="list-none gap-2 p-0">
+              <li class="flex gap-2 items-center" v-for="tag in recipe.data.tags" :key="tag.id">
+                <p>{{ tag.name }}</p>
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </template>
   </div>
 </template>
+
+<style scoped>
+.page-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 2rem;
+  min-width: 100%;
+}
+
+.left-section {
+  width: 75%;
+}
+aside {
+  width: 25%;
+  border: 2px solid gray;
+  padding: 15px;
+  height: fit-content;
+  background-color: #C6C6C6;
+  border: 2px solid #373737;
+  border-right-color: #FFF;
+  border-bottom-color: #FFF;
+  color: #373737;
+}
+
+@media screen and (max-width: 820px) {
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-section {
+    width: 90%;
+  }
+  aside {
+    width: 90%;
+    border: none;
+    background-color: transparent;
+    color: var(--color-text);
+    padding: 0;
+  }
+  
+}
+</style>

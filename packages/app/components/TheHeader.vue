@@ -56,6 +56,17 @@ nav .container {
   padding: 0 1rem;
 }
 
+@media screen and (max-width: 1300px){
+  nav .container{
+    padding: 0;
+  }
+
+  button{
+    margin-right: 0;
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   h1{
     font-size: 18px;
