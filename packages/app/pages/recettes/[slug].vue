@@ -39,9 +39,12 @@ const { data: recipe, pending } = useAsyncData(
               Items nécessaires
             </h2>
             <ul class="list-none gap-2 p-0">
-              <li class="flex gap-2 items-center" v-for="item in recipe.data.items" :key="item.id">
-                <NuxtImg :src="item.item.image.url" alt="image de l'item" class="h-10" />
-                <p>x {{ item.quantity }}</p>
+              <li class="item-wrapper" v-for="item in recipe.data.items" :key="item.id">
+                <p class="item-name">{{ item.item.name }}</p>
+                <div class="item-quantiy">
+                  <NuxtImg :src="item.item.image.url" alt="image de l'item" class="h-9" />
+                  <p>x {{ item.quantity }}</p>
+                </div>
               </li>
             </ul>
             <h2 class="mb-0">
@@ -79,7 +82,24 @@ aside {
   border: 2px solid #373737;
   border-right-color: #FFF;
   border-bottom-color: #FFF;
-  color: #373737;
+  color: #000000;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.item-name{
+  margin: 0;
+}
+
+.item-quantiy {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 820px) {

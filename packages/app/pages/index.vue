@@ -21,7 +21,7 @@ function addTag(tag: string) {
   <div class="container">
     <div v-if="!search.pending && search.sortedByTags" class="flex flex-col gap-y-4">
       <h2 class="mb-0">
-        Recettes artinales
+        Recettes artisanales
       </h2>
       <div class="flex flex-col lg:flex-row gap-4 index-container">
         <aside class="flex flex-col gap-4 lg:w-1/4">
