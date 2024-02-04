@@ -23,14 +23,14 @@ function addTag(tag: string) {
       <h2 class="mb-0">
         Recettes artinales
       </h2>
-      <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex flex-col lg:flex-row gap-4 index-container">
         <aside class="flex flex-col gap-4 lg:w-1/4">
           <h2>Filtres de recherche :</h2>
           <div class="form-group flex flex-col gap-2" role="search">
             <label for="search">Chercher une recette :</label>
             <input
               id="search" v-model="search.query"
-              class="px-4 py-2 border-2 rounded-lg border-gray-500 drop-shadow-none"
+              class="search-input"
               type="search"
             >
           </div>
@@ -46,7 +46,7 @@ function addTag(tag: string) {
               />
             </div>
             <button
-              class="mt-4 appearance-none border-none bg-transparent p-0 underline cursor-pointer"
+              class="reset-tags mt-4 appearance-none border-none bg-transparent p-0 underline cursor-pointer"
               @click="search.resetTags"
             >
               Réinitialiser les tags sélectionnés
@@ -54,11 +54,11 @@ function addTag(tag: string) {
           </div>
         </aside>
         <client-only>
-          <div class="lg:w-3/4">
+          <div class="w-full">
             <h2>Résultats de recherche : </h2>
             <ul
               v-if="search.sortedByTags.length"
-              class="list-none p-0 grid grid-cols-1 sm:grid-cols-2 gap-4"
+              class="search-results"
             >
               <RecipeCard
                 v-for="recipe in search.sortedByTags"
@@ -75,3 +75,56 @@ function addTag(tag: string) {
     </div>
   </div>
 </template>
+
+<style scoped>
+
+.dark .reset-tags {
+  color: var(--color-text);
+}
+.search-input {
+	background-color: #8B8B8B;
+	border: 2px solid #373737;
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
+  height: 36px;
+  outline: none;
+  font-size: 1em;
+  padding: 0 10px;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 640px;
+}
+
+@media screen and (max-width: 1230px) {
+  .index-container {
+    flex-direction: column;
+  }
+
+  aside{
+    width: 100%;
+  }
+  
+}
+
+@media screen and (max-width: 960px) {
+  .search-results {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-results {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+</style>

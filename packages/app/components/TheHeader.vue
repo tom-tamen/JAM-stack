@@ -39,6 +39,7 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 nav {
@@ -52,7 +53,21 @@ nav .container {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  max-width: 1200px;
   padding: 0 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  h1{
+    font-size: 18px;
+  }
+
+  nav *{
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav .container {
+    padding: 0;
+  }
 }
 </style>
